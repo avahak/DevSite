@@ -1,0 +1,13 @@
+{
+    "name": "shared",
+    "version": "1.0.0",
+    "description": "Common code shared between frontend and backend",
+    "scripts": {
+        "build": "tsc",
+        "clean": "rm -rf dist",
+        "prepare": "npm run clean && npm run build"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.4"
+    }
+}

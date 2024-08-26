@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                // Target ECMAScript version.
+    "module": "ESNext",                // Module system, compatible with both Node.js and modern JS environments.
+    "moduleResolution": "node",        // Node-style module resolution.
+    "strict": true,                    // Enable strict type-checking options.
+    "esModuleInterop": true,           // Allow default imports from CommonJS modules.
+    "skipLibCheck": true,              // Skip type-checking of declaration files.
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing across the project.
+    "baseUrl": ".",                    // Base directory to resolve non-relative module names.
+    "declaration": true,               // Generate .d.ts files for your TypeScript files.
+    "declarationMap": true,            // Create source maps for .d.ts files.
+    "outDir": "dist",                  // Output directory for compiled files.
+  },
+  "include": ["src"],              // Include all TypeScript files in the src directory.
+  "exclude": ["node_modules", "dist"]   // Exclude node_modules and output directory.
+}
