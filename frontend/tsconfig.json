@@ -1,22 +1,14 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "react-jsx",
-    "strict": true,
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
-    "baseUrl": "./",
-    "paths": {
-      "@shared/*": ["../shared/src/*"]
+    "extends": "../tsconfig.base.json",
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "strict": true,
+        "moduleResolution": "bundler",
+        "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true,
+        "noEmit": true,
+        "baseUrl": "./"
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "../shared/src/typescript"
-    ]
-  },
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules"]
+    "include": ["src", "vite.config.ts"],
+    "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@
  * päivämäärämuunnoksia.
  */
 
-import { isObject, isEqual } from 'lodash';
+import { isObject, isEqual } from 'lodash-es';
 
 /**
  * Palauttaa Suomen ajan merkkijonona.

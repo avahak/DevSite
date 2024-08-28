@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 // Tarkistetaan myös, että ainakin muutama tärkein ympäristömuuttuja on määritelty:
-if (!process.env.PORT || !process.env.SECRET_KEY || !process.env.KULUVA_KAUSI 
+if (!process.env.PORT || !process.env.SECRET_KEY 
     || !process.env.DB_NAME)
     throw new Error('Missing an environment variable, check server configuration.');
 
@@ -9,9 +9,8 @@ import express from 'express';
 import helmet from 'helmet';
 import path from 'path';
 import cors from 'cors';
-import 'express-async-errors';
-import { buildTimestamp } from '@shared/buildInfo';
-import { currentTimeInFinlandString, dateToYYYYMMDD } from '@shared/generalUtils';
+import { buildTimestamp } from '../../shared/src/buildInfo.js';
+import { currentTimeInFinlandString, dateToYYYYMMDD } from '../../shared/src/generalUtils.js';
 
 const app = express();
 
@@ -39,7 +38,7 @@ app.use(cors());
 app.use(express.json());
 
 // Välitä staattisia tiedostoja 'dist' hakemistosta:
-app.use(BASE_URL, express.static(path.join(process.cwd(), 'dist'), {
+app.use(BASE_URL, express.static(path.join(process.cwd(), '..', 'frontend', 'dist'), {
     // maxAge on maksimiaika selaimen välimuistin käytölle (3600000 on yksi tunti). 
     // Huom! Tämän voi poistaa tuotantoversiossa.
     maxAge: 2 * 3600000
@@ -65,7 +64,7 @@ app.get(BASE_URL + '/date', (_req, res) => {
  */
 const wildcard = BASE_URL ? `${BASE_URL}/*` : '*';
 app.get(wildcard, (_req, res) => {
-    res.sendFile(path.join(process.cwd(), 'dist', 'index.html'));
+    res.sendFile(path.join(process.cwd(), '..', 'frontend', 'dist', 'index.html'));
 });
 
 // Käynnistetään express.js serveri:
